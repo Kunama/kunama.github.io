@@ -18,6 +18,8 @@
         };
         firebase.initializeApp(config);
         var db = firebase.firestore();
+        var trickList = db.collection("tricks")
+        console.log(trickList.where("trickDifficulty", "==", "1"));
         db.collection("tricks").get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
